@@ -1,0 +1,21 @@
+Parser doesn't compile:
+
+$ clang -o parser lex.yy.c parser.tab.c -lfl
+parser.tab.c:1336:16: warning: implicit declaration of function 'yylex' is
+      invalid in C99 [-Wimplicit-function-declaration]
+      yychar = yylex ();
+               ^
+parser.y:139:28: error: expected ';' after expression
+    { printf("[reduce 42]")}
+                           ^
+                           ;
+parser.tab.c:1915:7: warning: implicit declaration of function 'yyerror' is
+      invalid in C99 [-Wimplicit-function-declaration]
+      yyerror (YY_("syntax error"));
+      ^
+parser.y:193:1: warning: type specifier missing, defaults to 'int'
+      [-Wimplicit-int]
+yyerror(char *s){
+^~~~~~~
+3 warnings and 1 error generated.
+
